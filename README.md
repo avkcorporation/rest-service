@@ -2,7 +2,7 @@
 
 Handles requests for «CONTACT» database and returns responses in a form of Json objects.
 
-status of the build:
+Status of the build:
 https://travis-ci.org/avkcorporation/rest-service
 
 1.	Deploy:
@@ -12,7 +12,10 @@ https://travis-ci.org/avkcorporation/rest-service
 2.	Service Management:
 
 2.1. In order to execute the request, you need to enter the command (GET request) in the browser having the following form:
-contacts?nameFilter=^A.*$&id=2&count=2 
+contacts?nameFilter=^A.*$&id=2&count=2
+example response:
+{"contacts":{"contact":[{"id":2,"name":"Da'Vinchi"}]}}
+
 where: 
 • nameFilter – regular expression used to filter the contacts list (by default, returns the entire list);
 • id – sequence number (id) of the contact in the database from the output of the contact list is started (the default id = 1)
@@ -20,12 +23,15 @@ where:
 The request above will return a list of contacts beginning with id 2 in the amount of 2 units or even less if the contact names match the regular expression in nameFilter parameter (^A.*$ – returns the contacts that DO NOT begin with A).
 
 2.2. If nothing is specified in the request, the service will return a list of all contacts from the 1st to the 100th number. Request form:
-/сontacts
+    /сontacts
+example response:
+{"contacts":{"contact":[{"id":1,"name":"Tesla"},{"id":2,"name":"Da'Vinchi"},{"id":3,"name":"Alex"},{"id":4,"name":"Top"},{"id":5,"name":"TopA"}]}}
 
 2.3. As an example, the work of another request form is shown:
 /contacts?nameFilter=^.*[aei].*$ 
 This query enables contacts from 1 to 100 minutes, and only those contacts that do not contain letters (aei) in their names.
-
+example response:
+{"contacts":{"contact":[{"id":4,"name":"Top"},{"id":5,"name":"TopA"}]}}
 
 3.	Error processing
 

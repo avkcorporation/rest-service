@@ -1,9 +1,12 @@
-# rest-service
+# Rest-service
 
 Handles requests for «CONTACT» database and returns responses in a form of Json objects.
 
+status of the build:
+https://travis-ci.org/avkcorporation/rest-service
 
-1.	To deploy the application, server, for example, Tomcat and PostgreSQL support are required. To launch the service you need to install the file “*.war” on the server, the database should automatically deploy. If it did not happen, it is necessary to create «CONTACT» database, and the tables will be created automatically.
+1.	Deploy:
+    To deploy the application, server, for example, Tomcat and PostgreSQL support are required. To launch the service you need to install the file “*.war” on the server, the database should automatically deploy. If it did not happen, it is necessary to create «CONTACT» database, and the tables will be created automatically.
 
 
 2.	Service Management:

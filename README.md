@@ -6,7 +6,7 @@ Status of the build:
 https://travis-ci.org/avkcorporation/rest-service
 
 1.	Deploy:
-    To deploy the application, server, for example, Tomcat and PostgreSQL support are required. To launch the service you need to install the file “*.war” on the server, the database should automatically deploy. If it did not happen, it is necessary to create «CONTACT» database, and the tables will be created automatically.
+    To deploy the application, server, for example, Tomcat and MySQL support are required. To launch the service you need to install the file “*.war” on the server, the database should automatically deploy. If it did not happen, it is necessary to create «CONTACT» database, and the tables will be created automatically.
 
 
 2.	Service Management:

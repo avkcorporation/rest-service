@@ -1,6 +1,7 @@
 # Rest-service
 
 Handles requests for «CONTACT» database and returns responses in a form of Json objects.
+The practical job for interview the Ardas comapany (Dnipropetrovsk (Dnipro)). 
 
 Status of the build:
 https://travis-ci.org/avkcorporation/rest-service

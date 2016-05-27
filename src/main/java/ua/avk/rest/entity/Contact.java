@@ -10,8 +10,8 @@ import java.io.Serializable;
 /**
  * @author Alex Kononenko
  * @version 1.0.0
- *
- * The contact entity.
+ *          <p/>
+ *          The contact entity.
  */
 @Entity
 
@@ -21,15 +21,13 @@ import java.io.Serializable;
         @NamedQuery(name = Contact.GET_ALL_CONTACT_FROM_DATABASE_QUERY, query = "select c from Contact c")
 })
 
-@Table(name="CONTACT")
-public class Contact implements Serializable{
-    private static final long serialVersionUID = -11111110000001L;
+@Table(name = "CONTACT")
+public class Contact implements Serializable {
     public static final String GET_ALL_CONTACT_FROM_DATABASE_QUERY = "getAllContactFromDatabase";
     public static final String GET_CONTACT_BY_REGEXP_QUERY = "getUserByLogin";
     public static final String GET_CONTACT_BY_LIMIT = "getContactByLimit";
-
+    private static final long serialVersionUID = -11111110000001L;
     @Id
-    //@GeneratedValue(strategy = GenerationType.TABLE)
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
     @Column(name = "ID", unique = true, nullable = false, length = 25)
@@ -70,8 +68,7 @@ public class Contact implements Serializable{
      */
     @Override
     public int hashCode() {
-        return new HashCodeBuilder(). // two randomly chosen prime numbers
-                // if deriving: appendSuper(super.hashCode()).
+        return new HashCodeBuilder().
                 append(this.name).
                 toHashCode();
     }
@@ -84,14 +81,15 @@ public class Contact implements Serializable{
      */
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof Contact))
+        if (!(obj instanceof Contact)) {
             return false;
-        if (obj == this)
+        }
+        if (obj == this) {
             return true;
+        }
 
         Contact contact = (Contact) obj;
         return new EqualsBuilder().
-                // if deriving: appendSuper(super.equals(obj)).
                 append(this.name, contact.name).
                 isEquals();
     }

@@ -3,21 +3,19 @@ package ua.avk.rest.service;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import ua.avk.rest.entity.Contact;
 import ua.avk.rest.dao.IContactDao;
+import ua.avk.rest.entity.Contact;
 import ua.avk.rest.service.util.Filter;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 /**
  * @author Alex Kononenko
  * @version 1.0.0
- *
- * The contact.
+ *          <p/>
+ *          The contact.
  */
 @Service
 class ContactSrv implements IContactSrv {
@@ -42,28 +40,14 @@ class ContactSrv implements IContactSrv {
      * @param count
      * @return json object
      */
-    public JSONObject getJsonContactsByFilter(String regExp, long startId, long count){
+    public JSONObject getJsonContactsByFilter(String regExp, long startId, long count) {
         // get all contacts from the database
         List<Contact> contacts = contactDao.getContactByLimit(startId, count);
 
         // set filter
         contacts = this.toFilter(contacts, regExp);
-        /*
-        Filter filter = new Filter(regExp);
-        for (Iterator<Contact> iter = contacts.listIterator(); iter.hasNext(); ) {
-            Contact c = iter.next();
-            if(c.getName()!=null && c.getName()!="") {
-                if (filter.getFilter(c.getName())) {
-                    iter.remove();
-                    //System.out.println("REMOVE: "+c.getName());
-                }
-            }
-        }
-        */
 
-        // create json obj
-        JSONObject responseContactDetailsJson = this.toJson(contacts); //new JSONObject();
-        return responseContactDetailsJson;
+        return this.toJson(contacts);
     }
 
     /**
@@ -72,7 +56,7 @@ class ContactSrv implements IContactSrv {
      * @param contacts list of the contacts
      * @return JSON Object
      */
-    public JSONObject toJson(List<Contact> contacts){
+    public JSONObject toJson(List<Contact> contacts) {
         JSONObject responseContactDetailsJson = new JSONObject();
         JSONArray jsonArray = new JSONArray();
         for (int i = 0; i < contacts.size(); i++) {
@@ -90,18 +74,15 @@ class ContactSrv implements IContactSrv {
      * Filtered the list of the contacts
      *
      * @param contacts list of the contacts
-     * @param regExp regular expression
+     * @param regExp   regular expression
      * @return filtered list
      */
-    public List<Contact> toFilter(List<Contact> contacts, String regExp){
+    public List<Contact> toFilter(List<Contact> contacts, String regExp) {
         Filter filter = new Filter(regExp);
-        for (Iterator<Contact> iter = contacts.listIterator(); iter.hasNext();) {
+        for (Iterator<Contact> iter = contacts.listIterator(); iter.hasNext(); ) {
             Contact c = iter.next();
-            if(c.getName()!=null && c.getName()!="") {
-                if (filter.getFilter(c.getName())) {
-                    iter.remove();
-                    //System.out.println("REMOVE: "+c.getName());
-                }
+            if (c.getName() != null && c.getName() != "" && filter.getFilter(c.getName())) {
+                iter.remove();
             }
         }
         return contacts;

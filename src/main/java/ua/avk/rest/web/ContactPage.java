@@ -2,6 +2,7 @@ package ua.avk.rest.web;
 
 import org.json.simple.JSONObject;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Controller;
 import ua.avk.rest.service.IContactSrv;
 import ua.avk.rest.web.exceptions.Error;
 import ua.avk.rest.web.utils.ResponseCreator;

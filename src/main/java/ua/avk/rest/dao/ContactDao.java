@@ -4,8 +4,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Repository;
 import ua.avk.rest.entity.Contact;
-import javax.annotation.Resource;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ import java.util.List;
  *          <p/>
  *          The Contact dao realization with contact dao interface.
  */
-@Resource
+@Repository
 @Transactional
 class ContactDao implements IContactDao {
 

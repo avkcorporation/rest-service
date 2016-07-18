@@ -16,6 +16,7 @@ import javax.ws.rs.core.Response;
  *          <p/>
  *          The rest service for contacts
  */
+@Controller
 @Path(value = "/contacts")
 public class ContactPage implements IContactPage {
     public static final int RESPONSE_ERROR = 500;

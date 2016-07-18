@@ -14,7 +14,7 @@ import java.util.List;
  *          <p/>
  *          The Contact dao realization with contact dao interface.
  */
-@Service
+@Resource
 @Transactional
 class ContactDao implements IContactDao {
 
